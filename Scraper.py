@@ -31,7 +31,7 @@ import requests
 #     print(summary)
 #     print()
 
-"""Load infor from Coreys Website"""
+"""Download info from Coreys Website"""
 
 source = requests.get('http://coreyms.com').text
 
