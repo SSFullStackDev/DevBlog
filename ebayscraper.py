@@ -58,7 +58,8 @@ else:
 """DONE Get average price/day save to a csv 
         create graph from csv
         use functions
-        Testing file    
+        Testing file
+        Include shipping costs in price    
         Set email alerts for price drops 
         create functions with ability to imput parameters for search 
         Build Gui for parameter input and graphs 
