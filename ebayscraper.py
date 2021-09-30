@@ -1,13 +1,18 @@
-#!/usr/bin/env python3
-
 from bs4 import BeautifulSoup as bs
 import requests
 import os
 import csv
 import datetime
 import sys
+import logging
 
-path = os.getcwd()
+logging.basicConfig(
+    filename="log.log",
+    level=logging.DEBUG,
+    format="%(asctime)s:%(levelname)s:%(message)s",
+)
+
+path = "c:/users/steph/mu_code/scraper"
 
 
 def scrapeWebsite(
@@ -18,6 +23,10 @@ def scrapeWebsite(
 
     source = requests.get(search_url)
     """source.text and html.parser instead of source and html need to look at bs docs"""
+    if source.ok:
+        print("Good Response")
+    else:
+        sys.exit("Bad Response from Website")
     soup = bs(source.text, "html.parser")
     priceList = []
 
@@ -31,10 +40,9 @@ def scrapeWebsite(
         except AttributeError:
             pass
         except ValueError:
-            print(price.text[1:])
-    # print(priceList)
-    # print(soup.title.text)
+            print(price.text)
 
+    logging.debug(f"{source.status_code} {source.ok}")
     return priceList, soup
 
 
@@ -61,13 +69,17 @@ def writeData(soup, csv_header, csv_entry):
     # check if filename exists and create one if not, then write data to file
     if not os.path.exists(path + "/" + filename + ".csv"):
         with open(path + "/" + filename + ".csv", "w") as history:
+            print(path + "/" + filename + ".csv")
             writer = csv.writer(history)
-            print(writer.writerow(csv_header))
-            print(writer.writerow(csv_entry))
+            writer.writerow(csv_header)
+            writer.writerow(csv_entry)
+            logging.warning("New CSV Created")
 
     # Check if data entry is already in CSV, write entry if not
     else:
         with open(path + "/" + filename + ".csv", "r+") as history:
+            print(path + "/" + filename + ".csv")
+            logging.warning("FILE ALREADY EXISTS")
             reader = csv.reader(history)
             writer = csv.writer(history)
             present = False
@@ -75,15 +87,18 @@ def writeData(soup, csv_header, csv_entry):
             for line in reader:
                 if csv_entry[0] in line:
                     print("DATA ALREADY ENTERED")
+                    logging.debug("DATA ALREADY ENTERED")
                     present = True
             if present != True:
                 writer.writerow(csv_entry)
+                logging.debug("DATA WRITTEN TO FILE")
 
 
 def main():
     """
     Main Function takes command line argument and scrapes info
     """
+
     try:
         priceList, soup = scrapeWebsite(sys.argv[1])
     except IndexError:
@@ -105,4 +120,5 @@ if __name__ == "__main__":
     DONE create functions with ability to input parameters for search 
          Build Gui for parameter input and graphs 
          Android App
+    DONE Logging
     """
