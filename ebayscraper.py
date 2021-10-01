@@ -5,6 +5,7 @@ import csv
 import datetime
 import sys
 import logging
+from PriceChartGenerator import create_graph
 
 logging.basicConfig(
     filename="log.log",
@@ -92,6 +93,7 @@ def writeData(soup, csv_header, csv_entry):
             if present != True:
                 writer.writerow(csv_entry)
                 logging.debug("DATA WRITTEN TO FILE")
+    return filename
 
 
 def main():
@@ -105,7 +107,8 @@ def main():
         priceList, soup = scrapeWebsite()
     average = calculateAverage(priceList)
     csv_header, csv_entry = create_entry(average)
-    writeData(soup, csv_header, csv_entry)
+    file_name = writeData(soup, csv_header, csv_entry)
+    create_graph(file_name)
 
 
 if __name__ == "__main__":
