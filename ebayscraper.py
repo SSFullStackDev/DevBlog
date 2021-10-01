@@ -121,4 +121,5 @@ if __name__ == "__main__":
          Build Gui for parameter input and graphs 
          Android App
     DONE Logging
+         Seperate Logging File for Value Error0
     """
