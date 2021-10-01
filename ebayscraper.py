@@ -12,7 +12,7 @@ logging.basicConfig(
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
 
-path = "c:/users/steph/mu_code/scraper"
+path = os.getcwd()
 
 
 def scrapeWebsite(
