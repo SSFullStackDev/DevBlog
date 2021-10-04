@@ -3,6 +3,9 @@ import csv
 import os
 
 
+plt.set_loglevel("WARNING")
+
+
 def create_graph(csv_file):
     xaxis = []
     yaxis = []

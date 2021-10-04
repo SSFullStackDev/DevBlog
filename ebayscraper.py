@@ -116,9 +116,9 @@ if __name__ == "__main__":
 
 
 """ DONE Get average price/day save to a csv 
-         create graph from csv
+    DONE create graph from csv
     DONE use functions
-         Testing file    
+    IN PROGRESS Testing file    
          Set email alerts for price drops 
     DONE create functions with ability to input parameters for search 
          Build Gui for parameter input and graphs 
