@@ -3,8 +3,9 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("<h1>Tracker Home is Up!!!</h1>")
+    return render(request, 'trackerapp/home.html')
 
 
 def about(request):
-    return HttpResponse("<h1>About My Tracker!</h1>")
+    return render(request, 'trackerapp/about.html'
+
