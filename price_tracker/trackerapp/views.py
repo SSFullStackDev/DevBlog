@@ -21,7 +21,3 @@ def track_item(request):
             return render(request,'trackerapp/track_item.html', {})
     else:
         return render(request, "trackerapp/track_item.html", {})
-
-
-def track(request):
-    return render(request, "track.html", {})
