@@ -1,6 +1,9 @@
-<h1>DATA</h1>
+{% extends 'base.html' %}
+    {% block content%}
+        <h1>DATA</h1>
     
-{%for item in data %}
-    <p>{{ item.title }}</p>
-    <p>{{ item.price }}</p> 
-{% endfor %}
+        {%for item in data %}
+            <p>{{ item.title }}</p>
+            <p>{{ item.price }}</p> 
+        {% endfor %}
+{% endblock %}
