@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>Track Price!<h1>
+        <br/><br/>
+        <form method='POST' action={% url "track_item" %}>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Title</label>
+            <textarea class="form-control" id="title" name="title" rows="1"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea2" class="form-label">Data</label>
+            <textarea class="form-control" id="data" name="data" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+{% endblock %}
