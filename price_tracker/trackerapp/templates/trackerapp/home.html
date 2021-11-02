@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Price Tracker</title>
-</head>
-
-<body>
-    <h1>Price Tracker Coming Soon!</h1>
-
-</body>
-
-</html>
+{% extends 'base.html' %}
+    {% block content%}
+        <h1>DATA</h1>
+    
+        {%for item in data %}
+            <p>{{ item.title }}</p>
+            <p>{{ item.price }}</p> 
+        {% endfor %}
+{% endblock %}
