@@ -11,10 +11,9 @@ def csv_to_json(file):
         reader = csv.DictReader(f)
         for line in reader:
             diclist.append(line)
-            print(diclist)
+#            print(diclist)
             jlist = json.dumps(diclist)
     return jlist
-
 
 def post_data(jdata):
     post = requests.post(
@@ -26,4 +25,5 @@ def post_data(jdata):
 
 if __name__ == "__main__":
     jlist2 = csv_to_json("./xm4-eBay.csv")
+    print(jlist2)
     post_data(jlist2)
