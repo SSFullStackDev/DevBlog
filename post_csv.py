@@ -3,7 +3,10 @@ import sys
 import csv
 import json
 import requests
+import socket
 
+
+ip_add = socket.gethostbyname(socket.gethostname())
 
 def csv_to_json(file):
     diclist = []
@@ -15,15 +18,16 @@ def csv_to_json(file):
             jlist = json.dumps(diclist)
     return jlist
 
-def post_data(jdata):
+def post_data(jlist):
     post = requests.post(
-        "http://10.0.0.131:8000/admin/trackerapp/price_history/add/", json=jdata
+        "http://" + ip_add + ":8000/track_item/", data={'title' : 'ScriptAgain', 'data' : jlist}
+        #'http://127.0.0.1'
     )
     print(post.ok)
     print(post.status_code)
 
 
 if __name__ == "__main__":
-    jlist2 = csv_to_json("./xm4-eBay.csv")
-    print(jlist2)
-    post_data(jlist2)
+    jlist = csv_to_json("./xm4-eBay.csv")
+    print(jlist)
+    post_data(jlist)
