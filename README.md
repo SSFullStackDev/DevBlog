@@ -4,6 +4,38 @@ This project started as a simple web scraper and has evloved into a price tracki
 
 Once complete the webapp will allow you to enter the url of an item you would like to track, and return todays average, along with any price history that may be present. 
 
+## Requirements and Installation Instructions
+
+This project is built in python 3.8.3 using the Django 3.2.7 lib. The install instructions are written for a Linux based OS such as Ubuntu. 
+
+### Installation: 
+
+Ensure that the latest Python and Django versions are installed.
+
+Clone repository to desired location, which will create a folder named `Price-Tracker-Web-App`. In this folder are the main python scripts that parse the data as well as the folders created by Django.
+
+Open terminal, move to the `price_tracker` dir and run the following:
+
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+These commands will allow the forms and database to be used. Next you will need to create a superuser
+
+```
+python3 manage.py createsuperuser
+```
+Follow the prompt to finish creating your superuser. You will need this info to access the admin page 
+
+Finally all you need to do is start the server. Run the following:
+```
+python3 manage.py runserver 0.0.0.0:8000
+
+The server and webapp are now up and running and can be accessed by entering the host computers IP address adding :8000 to the end. 
+```
+
+
 
 ## Usage
 
@@ -25,10 +57,12 @@ $ python pricechartgenerator.py <csv_file>
 
 ### post_data.py
 
+
 **TODO**
 
-The post_data.py script reads the info in the csv and then posts the data to the webapp. This script is not yet working correctly
+### test_file.py
 
+The Test_File.py file will test each module in each of the scripts for future troubleshooting and debugging.
 ### test_file.py
 
 The Test_File.py file will test each module in each of the scripts for future troubleshooting and debugging.
