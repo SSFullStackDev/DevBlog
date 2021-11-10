@@ -31,9 +31,9 @@ Follow the prompt to finish creating your superuser. You will need this info to 
 Finally all you need to do is start the server. Run the following:
 ```
 python3 manage.py runserver 0.0.0.0:8000
+```
 
 The server and webapp are now up and running and can be accessed by entering the host computers IP address adding :8000 to the end. 
-```
 
 
 
