@@ -10,14 +10,14 @@ This project is built in python 3.8.3 using the Django 3.2.7 lib. The install in
 
 ### Installation: 
 
-Use pip to install all of the required packages
+Clone repository to desired location, which will create a folder named `Price-Tracker-Web-App`. In this folder are the main python scripts that parse the data as well as the folders created by Django.
+
+Open terminal and use pip to install all of the required packages
 ```
 pip install -r requirements.txt
 ```
 
-Clone repository to desired location, which will create a folder named `Price-Tracker-Web-App`. In this folder are the main python scripts that parse the data as well as the folders created by Django.
-
-Open terminal, move to the `price_tracker` dir and run the following:
+Move to the `price_tracker` dir and run the following:
 
 ```
 python3 manage.py migrate
