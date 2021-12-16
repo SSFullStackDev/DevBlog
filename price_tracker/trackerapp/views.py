@@ -12,6 +12,9 @@ def home(request):
 def about(request):
     return render(request, "trackerapp/about.html")
 
+def blog(request):
+    return render(request, "trackerapp/blog.html")
+
 @csrf_exempt
 def track_item(request):
     if request.method == "POST":
