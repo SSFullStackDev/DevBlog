@@ -132,3 +132,24 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #CSRF
 CSRF_COOKIE_SECURE = True
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': './django_debug.log'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
