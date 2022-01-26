@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Docker build
         run: |
-          docker build ./Price-Tracker-Web-App -t pt
+          docker build . -t pt
