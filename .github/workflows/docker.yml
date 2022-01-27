@@ -13,5 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
+        env:
+          DOCKER_HUB: ${{ secrets.DOCKER_HUB }}
+          DOCKER_HUB_PW: ${{ secrets.DOCKER_HUB_PW }}
         run: |
+          ls -l
+          echo 'Docker login'
+          docker login -u $DOCKER_HUB -p $DOCKER_HUB_PW
+          echo 'Running build...'
           docker build . -t pt
+          echo 'Pushing image...'
+          docker push pt
+          echo 'Done!'
