@@ -23,6 +23,6 @@ jobs:
           echo 'Running build...'
           docker build . -t nerdwithapythonscript/ptrepo:latest
           echo 'Pushing image...'
-          docker push nerdiwthapythonscript/ptrepo:latest
+          docker push nerdwithapythonscript/ptrepo:latest
           echo 'Done!'
 
