@@ -23,6 +23,6 @@ jobs:
           echo 'Running build...'
           docker build . -t pt
           echo 'Pushing image...'
-          docker push pt
+          docker push $DOCKER_HUB/pt
           echo 'Done!'
-##testing 
+
