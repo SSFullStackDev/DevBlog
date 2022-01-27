@@ -23,6 +23,6 @@ jobs:
           echo 'Running build...'
           docker build . -t ptrepo/pt:latest
           echo 'Pushing image...'
-          docker push ptrepo/pt:latest
+          docker push $DOCKER_HUB/ptrepo:latest
           echo 'Done!'
 
