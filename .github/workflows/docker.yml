@@ -21,8 +21,8 @@ jobs:
           echo 'Docker login'
           docker login -u $DOCKER_HUB -p $DOCKER_HUB_PW
           echo 'Running build...'
-          docker build . -t pt
+          docker build . -t pt:latest
           echo 'Pushing image...'
-          docker push $DOCKER_HUB/pt
+          docker push $DOCKER_HUB/pt:latest
           echo 'Done!'
 
