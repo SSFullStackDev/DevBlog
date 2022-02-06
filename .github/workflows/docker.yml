@@ -37,12 +37,10 @@ jobs:
           cat >>~/.ssh/config <<END
           HOST instance
             HOSTNAME $SSH_USER
+            Port 22
+            IdentitiesOnly yes
             IdentityFile ~/.ssh/instance.key
             StrictHostKeyChecking no
           END
-      - name: Check SSH Files
-        run: |
-          cat ~/.ssh/config
-          cat ~/.ssh/instance.key
-      #- name: Test connection
-        #run: ssh instance 'ls'
+      - name: Test connection
+        run: ssh instance 'ls'
