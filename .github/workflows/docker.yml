@@ -40,6 +40,8 @@ jobs:
             IdentityFile ~/.ssh/instance.key
             StrictHostKeyChecking no
           END
+      - name: Check SSH Files
+        run: |
           cat ~/.ssh/config
           cat ~/.ssh/instance.key
       #- name: Test connection
