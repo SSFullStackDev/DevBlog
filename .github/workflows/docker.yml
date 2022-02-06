@@ -32,13 +32,13 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
         run: |
           mkdir -p ~/.ssh/
-          echo "SSH_KEY" > ~/.ssh/instance.key
-          chmod 400 ~/.ssh/instance.key
+          echo "SSH_KEY" > ~/.ssh/instance.pem
+          chmod 400 ~/.ssh/instance.pem
           cat >>~/.ssh/config <<END
           Host instance
             HostName $SSH_HOST
             User $SSH_USER
-            IdentityFile ~/.ssh/instance.key
+            IdentityFile ~/.ssh/instance.pem
             StrictHostKeyChecking no
           END
       - name: Test connection
