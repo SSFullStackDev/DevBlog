@@ -40,5 +40,7 @@ jobs:
             IdentityFile ~/.ssh/instance.key
             StrictHostKeyChecking no
           END
-      - name: Test connection
-        run: ssh instance 'ls'
+          cat ~/.ssh/config
+          cat ~/.ssh/instance.key
+      #- name: Test connection
+        #run: ssh instance 'ls'
