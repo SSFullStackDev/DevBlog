@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh/
           echo "SSH_KEY" > ~/.ssh/instance.key
-          chmod 600 ~/.ssh/instance.key
+          chmod 400 ~/.ssh/instance.key
           cat >>~/.ssh/config <<END
           Host instance
             HostName $SSH_HOST
