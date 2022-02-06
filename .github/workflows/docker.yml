@@ -1,4 +1,4 @@
-## This workflow to build and deploy docker containers.
+## This workflow is used to build and deploy docker containers and deploy them on my EC2 instance.
 name: Docker Build and Deploy
 on:
   push:
@@ -25,4 +25,20 @@ jobs:
           echo 'Pushing image...'
           docker push nerdwithapythonscript/ptrepo:latest
           echo 'Done!'
-
+      - name: Configure SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "SSH_KEY" > ~/.ssh/instance.key
+          chmod 600 ~/.ssh/instance.key
+          cat >>~/.ssh/config <<END
+          HOST instance
+            HOSTNAME $SSH_USER
+            IdentityFile ~/.ssh/instance.key
+            StrictHostKeyChecking no
+          END
+      - name: Test connection
+        run: ssh instance 'ls'
