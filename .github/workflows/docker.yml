@@ -35,10 +35,9 @@ jobs:
           echo "SSH_KEY" > ~/.ssh/instance.key
           chmod 600 ~/.ssh/instance.key
           cat >>~/.ssh/config <<END
-          HOST instance
-            HOSTNAME $SSH_USER
-            Port 22
-            IdentitiesOnly yes
+          Host instance
+            HostName $SSH_HOST
+            User $SSH_USER
             IdentityFile ~/.ssh/instance.key
             StrictHostKeyChecking no
           END
