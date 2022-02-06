@@ -32,7 +32,7 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
         run: |
           mkdir -p ~/.ssh/
-          echo "SSH_KEY" > ~/.ssh/TestVM.pem
+          echo "$SSH_KEY" > ~/.ssh/TestVM.pem
           chmod 400 ~/.ssh/TestVM.pem
           cat >>~/.ssh/config <<END
           Host instance
