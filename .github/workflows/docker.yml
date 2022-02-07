@@ -1,0 +1,45 @@
+### This workflow is used to build and deploy docker containers and deploy them on my EC2 instance.
+name: Docker Build and Deploy
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker build
+        env:
+          DOCKER_HUB: ${{ secrets.DOCKER_HUB }}
+          DOCKER_HUB_PW: ${{ secrets.DOCKER_HUB_PW }}
+        run: |
+          ls -l
+          echo 'Docker login'
+          docker login -u $DOCKER_HUB -p $DOCKER_HUB_PW
+          echo 'Running build...'
+          docker build . -t nerdwithapythonscript/ptrepo:latest
+          echo 'Pushing image...'
+          docker push nerdwithapythonscript/ptrepo:latest
+          echo 'Done!'
+      - name: Configure SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/TestVM.pem
+          chmod 400 ~/.ssh/TestVM.pem
+          cat >>~/.ssh/config <<END
+          Host instance
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/TestVM.pem
+            StrictHostKeyChecking no
+          END
+      - name: Test connection
+        run: ssh instance 'ls'

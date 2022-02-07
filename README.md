@@ -10,14 +10,16 @@ This project is built in python 3.8.3 using the Django 3.2.7 lib. The install in
 
 ### Installation: 
 
-Ensure that the latest Python and Django versions are installed.
-
 Clone repository to desired location, which will create a folder named `Price-Tracker-Web-App`. In this folder are the main python scripts that parse the data as well as the folders created by Django.
 
-Open terminal, move to the `price_tracker` dir and run the following:
+Open terminal and use pip to install all of the required packages
+```
+pip install -r requirements.txt
+```
+
+Move to the `price_tracker` dir and run the following:
 
 ```
-python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
@@ -44,7 +46,7 @@ The server and webapp are now up and running and can be accessed by entering the
 The main script `ebayscraper.py` takes in an ebay item search url as a command line argument. It then calculates the average item price that day.  Results are saved or amended (if exists) to a CSV file.
 
 ```
-$ python ebayscraper.py https://www.ebay.com/<search_url>
+$ python3 ebayscraper.py https://www.ebay.com/<search_url>
 ```
 
 ### pricechartgenerator.py
@@ -52,11 +54,15 @@ $ python ebayscraper.py https://www.ebay.com/<search_url>
 The `pricechartgenerator.py` script takes in the info from the csv file and creates a simple line graph to show the change in price over time.
 
 ```
-$ python pricechartgenerator.py <csv_file>
+$ python3 pricechartgenerator.py <csv_file>
 ```
 
 ### post_data.py
 
+The `post_data.py` script converts the CSV file to JSON and uploads that data to the web app's database
+```
+python3 post_data.py
+```
 
 **TODO**
 
