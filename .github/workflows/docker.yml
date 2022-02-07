@@ -48,4 +48,6 @@ jobs:
       - name: Pull New Image
         run: ssh instance 'sudo docker pull nerdwithapythonscript/ptrepo'
       - name: Deploy Container and Start Server
-        run: ssh instance 'sudo docker run --name blog -p 8000:8000 nerdwithapythonscript/ptrepo >container.blog &'
+        run: |
+          ssh instance 'sudo docker run --name blog -p 8000:8000 nerdwithapythonscript/ptrepo >container.blog &'
+          ssh instance 'exit'
