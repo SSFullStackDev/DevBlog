@@ -41,12 +41,12 @@ jobs:
             IdentityFile ~/.ssh/TestVM.pem
             StrictHostKeyChecking no
           END
-      #- name: Stop All Running Containers
-      #  run: ssh instance 'sudo docker container stop $(sudo docker container ls -aq)'
-      #- name: Delete All Containers
-      #  run: ssh instance 'sudo docker container prune -f'
+      - name: Stop All Running Containers
+      - run: ssh instance 'sudo docker container stop $(sudo docker container ls -aq)'
+      - name: Delete All Containers
+        run: ssh instance 'sudo docker container prune -f'
       - name: Pull New Image
         run: ssh instance 'sudo docker pull nerdwithapythonscript/ptrepo'
-      #- name: Deploy Container and Start Server
-      #  run: |
+      - name: Deploy Container and Start Server
+        run: |
           ssh instance 'sudo docker run -d --name blog -p 8000:8000 nerdwithapythonscript/ptrepo'
