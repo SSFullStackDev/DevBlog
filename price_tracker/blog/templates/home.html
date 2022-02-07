@@ -1,0 +1,50 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block stuff %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'blog/assets/img/bayview.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>SSloper Dev</h1>
+                            <span class="subheading">A Dev Blog by Stephen Sloper</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="{% url 'post' %}">
+                            <h2 class="post-title">My Dev Site</h2>
+                            <!-- Redacted <h3 class="post-subtitle"></h3> -->
+                        </a>
+                        <p> This blog site was created for the purpose of documenting and demonstrating the skills I have acquired in the Python Development, Front End & Back End Web Development, and Dev Ops fields. Other than the bootstrap template, the code for this site was written completely from scratch. All pictures, media, views, unsolicited opinions, mistakes, and typos are my own. It is an ever-evolving tangible representation of my work and deserves your full and unforgiving judgement. </p>
+                        <br>
+			<h1>Glossary</h1>
+			<br>
+			<h4>BACKGROUND</h4>
+			<p>This page is a little bit about me and the path that led me to this point. This one is a tale for the ages. Filled with action, adventure, trials, and tribulations; and even cameos from a familiar character or two. Click
+			<a href="{% url 'about' %}">HERE</a> to start the adventure.
+			<h4>POSTS AND TWEETS</h4>
+			<p>Random tweets and blog posts detailing my experiences in learning to code. 
+			<a href="{% url 'post' %}">HERE</a> you can live vicariously through me by witnessing real time exhibits of my daily frustrations, anger, and even boiling resentment often caused by hunger, basic syntax errors, and even spelling errors.
+			</p>
+			<h4>PROJECTS AND APP DEVELOPMENT</h4>
+			<p>
+			<a href="{% url 'projects' %}">HERE</a> You get an exclusive in depth look at the details and processes I took in visualzing, and realizing the artwork that is my code portfolio. Im tempted to try to prepare you as the obsever for what you will see here, but I fear that any further desciption provided would only serve to spoil the experience and rob you of the joy that you are in for.
+			</p>
+			
+			<p class="post-meta">
+                            Posted on Dec 14, 2021
+                        </p>
+                    </div>
+<a href="https://www.freecounterstat.com" title="website hit counter"><img src="https://counter7.stat.ovh/private/freecounterstat.php?c=ec3mlnkegyfmmz2lqmte799qcxt3dshg" border="0" title="website hit counter" alt="website hit counter"></a>
+{% endblock %}
