@@ -46,7 +46,7 @@ jobs:
       #- name: Delete All Containers
        # run: ssh instance 'sudo docker container prune -f'
       - name: Pull New Image
-        run: ssh instance 'sudo docker pull --no-cache nerdwithapythonscript/ptrepo:latest'
+        run: ssh instance 'sudo docker pull nerdwithapythonscript/ptrepo:latest'
       - name: Deploy Container and Start Server
         run: |
-         ssh instance 'sudo docker run -d --name blog -p 8000:8000 nerdwithapythonscript/ptrepo:latest'
+         ssh instance 'sudo docker run -d -p 8000:8000 nerdwithapythonscript/ptrepo:latest'
