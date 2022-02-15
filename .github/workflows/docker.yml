@@ -1,4 +1,4 @@
-# This workflow is used to build and deploy docker containers and deploy them on my EC2 instance.
+## This workflow is used to build and deploy docker containers and deploy them on my EC2 instance.
 name: Docker Build and Deploy
 on:
   push:
