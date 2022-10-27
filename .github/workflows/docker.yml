@@ -42,7 +42,7 @@ jobs:
             StrictHostKeyChecking no
           END
       - name: Stop All Running Containers
-        run: ssh instance 'sudo docker container stop $(sudo docker container ls -aq)' || :
+        run: ssh instance 'sudo docker container stop $(sudo docker container ls -aq) || :'
       #- name: Delete All Containers
        # run: ssh instance 'sudo docker container prune -f'
       - name: Pull New Image
